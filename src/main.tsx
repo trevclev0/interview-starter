@@ -14,7 +14,7 @@ const queryClient = new QueryClient();
 createRoot(documentRoot).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-    <App />
+      <App />
     </QueryClientProvider>
   </StrictMode>,
 );

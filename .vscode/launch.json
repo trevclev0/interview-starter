@@ -8,9 +8,7 @@
       "url": "http://localhost:5173",
       "webRoot": "${workspaceFolder}",
       "reAttach": true,
-      "pathMappings": [
-        { "url": "http://localhost:5173/src", "path": "${workspaceFolder}/src" }
-      ]
+      "pathMappings": [{ "url": "http://localhost:5173/src", "path": "${workspaceFolder}/src" }]
     }
   ]
 }
