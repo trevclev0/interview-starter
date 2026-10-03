@@ -1,0 +1,69 @@
+{
+  "Component": {
+    "scope": "typescriptreact",
+    "prefix": "rfc",
+    "description": "Named function component with a props type",
+    "body": [
+      "type ${1:Name}Props = {",
+      "\t$2",
+      "};",
+      "",
+      "export function $1({ $3 }: $1Props) {",
+      "\treturn (",
+      "\t\t<div>$0</div>",
+      "\t);",
+      "}"
+    ]
+  },
+  "useState": {
+    "scope": "typescriptreact,typescript",
+    "prefix": "ust",
+    "description": "useState with the setter named from the value",
+    "body": ["const [${1:value}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:Type}>($3);"]
+  },
+  "useEffect": {
+    "scope": "typescriptreact,typescript",
+    "prefix": "uef",
+    "description": "useEffect with a dependency array",
+    "body": ["useEffect(() => {", "\t$0", "}, [$1]);"]
+  },
+  "Fetch on mount": {
+    "scope": "typescriptreact,typescript",
+    "prefix": "fetchfx",
+    "description": "Fetch once on mount with loading and error state",
+    "body": [
+      "const [${1:data}, set${1/(.*)/${1:/capitalize}/}] = useState<${2:Type}>($3);",
+      "const [loading, setLoading] = useState(true);",
+      "const [error, setError] = useState<string | null>(null);",
+      "",
+      "useEffect(() => {",
+      "\tfetch('${4:url}')",
+      "\t\t.then((res) => {",
+      "\t\t\tif (!res.ok) throw new Error(`HTTP \\${res.status}`);",
+      "\t\t\treturn res.json();",
+      "\t\t})",
+      "\t\t.then((json) => set${1/(.*)/${1:/capitalize}/}(json$5))",
+      "\t\t.catch((err) => setError(err.message))",
+      "\t\t.finally(() => setLoading(false));",
+      "}, []);$0"
+    ]
+  },
+  "Update item in array state": {
+    "scope": "typescriptreact,typescript",
+    "prefix": "updarr",
+    "description": "Replace one item in array state by id",
+    "body": [
+      "const ${1:updateItem} = (id: number, ${2:changes}: Partial<${3:Item}>) =>",
+      "\tset${4:Items}((prev) => prev.map((item) => (item.id === id ? { ...item, ...$2 } : item)));"
+    ]
+  },
+  "Remove item from array state": {
+    "scope": "typescriptreact,typescript",
+    "prefix": "rmarr",
+    "description": "Remove one item from array state by id",
+    "body": [
+      "const ${1:removeItem} = (id: number) =>",
+      "\tset${2:Items}((prev) => prev.filter((item) => item.id !== id));"
+    ]
+  }
+}

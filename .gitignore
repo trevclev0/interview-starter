@@ -20,6 +20,7 @@ dist-ssr
 # but because this project needs to have no AI,
 # we need explicit settings specified here
 !.vscode/settings.json
+!.vscode/*.code-snippets
 .idea
 .DS_Store
 *.suo

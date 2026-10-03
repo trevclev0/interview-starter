@@ -79,6 +79,7 @@ expect(screen.getByRole('alert')).toHaveTextContent('Email is required');
 
 - Open the folder and accept the recommended extensions (Biome, Tailwind IntelliSense, mise, Vitest Explorer).
 - Format on save runs through Biome, including Tailwind class sorting.
+- Hand-written snippets in `.vscode/react.code-snippets` (static templates, not AI): `rfc` component, `ust` useState, `uef` useEffect, `fetchfx` fetch with loading/error, `updarr` / `rmarr` array-state update and remove.
 - AI completion extensions (Copilot, Codeium, Gemini, Tabnine, Supermaven, Amazon Q) are listed as **unwanted** in `.vscode/extensions.json`. For interviews that forbid AI, open the project in a dedicated VS Code profile with those extensions disabled.
 
 ## Using this as a template
