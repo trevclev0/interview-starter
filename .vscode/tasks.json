@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // Applies the fixes biome.json keeps off on save (unused imports, debugger, useless
+      // fragments, let→const) to the open file. Effect dependencies are never auto-fixed.
+      "label": "Biome: fix all (current file)",
+      "type": "process",
+      "command": "${workspaceFolder}/node_modules/.bin/biome",
+      "args": [
+        "check",
+        "--write",
+        "--unsafe",
+        "--config-path=.vscode/biome-fixall.jsonc",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true,
+        "focus": false
+      }
+    }
+  ]
+}

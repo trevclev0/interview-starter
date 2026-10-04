@@ -31,10 +31,22 @@
     "rules": {
       "preset": "recommended",
       "correctness": {
-        "useHookAtTopLevel": "error"
+        "useHookAtTopLevel": "error",
+        "noUnusedVariables": { "level": "warn", "fix": "none" },
+        "noUnusedFunctionParameters": { "level": "warn", "fix": "none" },
+        "noUnusedImports": { "level": "warn", "fix": "none" },
+        "useExhaustiveDependencies": { "level": "warn", "fix": "none" }
       },
       "style": {
-        "useComponentExportOnlyModules": "warn"
+        "useComponentExportOnlyModules": "warn",
+        "useConst": { "level": "warn", "fix": "none" }
+      },
+      "suspicious": {
+        "noLeakedRender": "error",
+        "noDebugger": { "level": "warn", "fix": "none" }
+      },
+      "complexity": {
+        "noUselessFragments": { "level": "warn", "fix": "none" }
       },
       "nursery": {
         "useSortedClasses": {

@@ -21,6 +21,8 @@ dist-ssr
 # we need explicit settings specified here
 !.vscode/settings.json
 !.vscode/*.code-snippets
+!.vscode/tasks.json
+!.vscode/biome-fixall.jsonc
 .idea
 .DS_Store
 *.suo

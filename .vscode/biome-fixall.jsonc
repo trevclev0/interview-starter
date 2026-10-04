@@ -1,0 +1,28 @@
+// Used only by the "Biome: fix all (current file)" task in tasks.json.
+// biome.json turns these fixes off so they never run on save; this re-enables them on demand.
+// useExhaustiveDependencies is left out on purpose: its fix can add an unstable dependency
+// (e.g. a function recreated every render) and cause an effect loop. Fix those by hand.
+// Named *.jsonc rather than biome.json so Biome doesn't pick it up as a nested config.
+{
+  "extends": ["../biome.json"],
+  // Resolved from the working directory (the repo root, set by the task), not from this file.
+  "vcs": {
+    "root": "."
+  },
+  "linter": {
+    "rules": {
+      "correctness": {
+        "noUnusedImports": { "level": "warn", "fix": "unsafe" }
+      },
+      "style": {
+        "useConst": { "level": "warn", "fix": "safe" }
+      },
+      "suspicious": {
+        "noDebugger": { "level": "warn", "fix": "unsafe" }
+      },
+      "complexity": {
+        "noUselessFragments": { "level": "warn", "fix": "unsafe" }
+      }
+    }
+  }
+}
