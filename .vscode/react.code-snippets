@@ -15,6 +15,18 @@
       "}"
     ]
   },
+  "Custom hook": {
+    "scope": "typescriptreact,typescript",
+    "prefix": "hook",
+    "description": "Exported custom hook named from the file",
+    "body": [
+      "export function ${1:$TM_FILENAME_BASE}($2) {",
+      "\t$0",
+      "",
+      "\treturn {};",
+      "}"
+    ]
+  },
   "useState": {
     "scope": "typescriptreact,typescript",
     "prefix": "ust",
